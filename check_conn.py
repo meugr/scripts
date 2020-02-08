@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
         hosts = ['1.1.1.1', '8.8.8.8']
         try:
-            hosts.append(sys.argv[1])
+            hosts.append(sys.argv[2])
         except IndexError:
             pass
         iteration = 7
