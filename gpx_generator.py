@@ -33,8 +33,7 @@ def main(csv_path):
         for dot in dots:
             create_dot(root, dot)
 
-        # tree = ET.ElementTree(root)
-        tree = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
+        tree = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ")
         with open("filename.gpx", "w") as f:
             f.write(tree)
 
