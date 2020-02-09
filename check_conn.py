@@ -23,7 +23,7 @@ def run_cmd(cmd: str) -> int:
 def ping(hosts: List[str]) -> bool:
     """Returns True if any host (str) responds to a ping request."""
     for host in hosts:
-        if run_cmd(f'ping -W 1 -c 1 {host}') == 0:
+        if run_cmd(f'ping -W 2 -c 1 {host}') == 0:
             return True
     return False
 
