@@ -19,6 +19,6 @@ if __name__ == '__main__':
         for f in files:
             path_to_bin = os.path.join(d, f)
             path_to_ln = os.path.join(sys.argv[2], f)
-            run_cmd(f'ln -s {path_to_bin} {path_to_ln}')
+            if os.access(path_to_bin, os.X_OK):
+                run_cmd(f'ln -s {path_to_bin} {path_to_ln}')
         break
-
