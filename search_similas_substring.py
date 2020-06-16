@@ -11,15 +11,15 @@ def get_subs(seq, length):
 
 a = "ACATCTATGGACATTACCCC"
 b = "CTATGAGC"
-leader = [0, '']
+leader = [0, set()]
 
 for window in get_subs(a, len(b)):
     seq = SequenceMatcher(a=window, b=b)
     score = seq.ratio()
     if score > leader[0]:
-        leader = [score, [window]]
+        leader = [score, {window}]
     elif score == leader[0]:
-        leader[1].append(window)
+        leader[1].add(window)
     print(score, window, b)
 print('======')
 print(leader)
