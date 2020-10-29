@@ -3,7 +3,7 @@
 from difflib import SequenceMatcher
 
 
-def search_similar_str(text, substr):
+def search_similar_str(text, substr, show_progress=False):
     """Поиск наиболее похожей подстроки в тексте.
     Принимает на вход текст и искомую подстроку.
     Возвращает коэффициент схожести и список похожих подстрок"""
@@ -21,7 +21,8 @@ def search_similar_str(text, substr):
             leader[1].add(window)
         if leader[0] == 1:
             return leader[0], list(leader[1])
-        print(score, window, substr)
+        if show_progress:
+            print(score, window, substr)
 
     return leader[0], list(leader[1])
 
